@@ -2,19 +2,19 @@ import express from "express";
 import cors from "cors";
 
 const app = express();
-app.use(express.json());
 app.use(cors());
+app.use(express.json());
 
 // Chat endpoint
 app.post("/chat", (req, res) => {
   const { message } = req.body;
 
-  // Hozircha oddiy javob qaytaramiz
-  let reply = "AI javobi: " + message;
+  // Oddiy javob
+  const reply = "AI javobi: " + message;
 
   res.json({ reply });
 });
 
-// Port
+// Render server uchun PORT
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`✅ Server ${PORT}-portda ishlayapti`));
+app.listen(PORT, () => console.log(`✅ Server ishlayapti: ${PORT}-port`));
